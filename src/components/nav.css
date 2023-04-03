@@ -1,0 +1,11 @@
+.uwu{  
+   display:flex;
+   justify-content: center;
+  list-style: none;
+}
+
+.link-styled{
+    margin-right: 75px;
+    margin-left: 30px;
+   justify-content: center;
+}
