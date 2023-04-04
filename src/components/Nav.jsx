@@ -28,8 +28,8 @@ function Nav() {
                 <li>
                     <a className="link-styled">Support</a>
                 </li>
-                <li ><img src={Search} alt="Search" /></li>
-                <li ><img src={Store} alt="Store" /></li>
+                <li className='search'><img src={Search} alt="Search" /></li>
+                <li className='store'><img src={Store} alt="Store" /></li>
                 
                 
             
