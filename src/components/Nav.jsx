@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from '../assets/images/logo.svg';
 import Search from '../assets/images/search.svg'
 import Store from '../assets/images/store.svg'
-import "./nav.css"
+
 function Nav() {
     return (<nav className='nav-wrapper'>
         <div className='nav-content'>
