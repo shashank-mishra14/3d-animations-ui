@@ -20,6 +20,9 @@ import {
 } from "webgi";
 import  gsap  from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 function WebgiViewer() {
 
     const setupViewer= useCallback(async() =>  {
@@ -32,9 +35,14 @@ function WebgiViewer() {
         // Add some plugins
         const manager = await viewer.addPlugin(AssetManagerPlugin)
 
+        const camera = viewer.scene.activeCamera;
+        const position = camera.position;
+        const target = camera.target;
+        
+
         await viewer.addPlugin(GBufferPlugin)
          await viewer.addPlugin(new ProgressivePlugin(32))
-         await viewer.addPlugin(new TonemapPlugin(!viewer.useRgbm))
+         await viewer.addPlugin(new TonemapPlugin(true))
         await viewer.addPlugin(GammaCorrectionPlugin)
         await viewer.addPlugin(SSRPlugin)
         await viewer.addPlugin(SSAOPlugin)
@@ -49,6 +57,15 @@ function WebgiViewer() {
         viewer.scene.activeCamera.setCameraOptions({ controlsEnabled : false });
 
         window.scrollTo(0,0);
+
+        let needsupdate = true;
+
+        viewer.addEventListener("preframe",() =>{
+            if(needsupdate){
+                camera.positionTargetUpdated(true);
+                needsupdate= false;  
+            }
+        });
     
        
     },[]);
