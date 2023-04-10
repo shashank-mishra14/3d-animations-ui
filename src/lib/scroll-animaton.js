@@ -16,7 +16,7 @@ export const  scrollAnimation =(position, target, onUpdate) => {
         },
         onUpdate
     })
-    .to(target,{                    // the "to" method tell us the parameters that are going to be changed.//
+    .to(target,{  
         x: 1.52,
         y:0.77,
         z:-1.08,    
@@ -28,7 +28,7 @@ export const  scrollAnimation =(position, target, onUpdate) => {
             immediateRender:false
         },
     })
-    .to('.jumbotron-section ',{                    // the "to" method tell us the parameters that are going to be changed.//
+    .to('.jumbotron-section ',{    
         opacity:0,  
         scrollTrigger:{
             trigger:' .sound-section',
@@ -38,7 +38,7 @@ export const  scrollAnimation =(position, target, onUpdate) => {
             immediateRender:false
         },
     })
-    .to('.sound-section-content ',{                    // the "to" method tell us the parameters that are going to be changed.//
+    .to('.sound-section-content ',{  
         opacity:1,  
         scrollTrigger:{
             trigger:' .sound-section',
