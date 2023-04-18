@@ -49,9 +49,9 @@ export const  scrollAnimation =(position, target, onUpdate) => {
         },
     })
     .to(position,{                    // the "to" method tell us the parameters that are going to be changed.//
-        x: -3.38,
-        y:-10.74,
-        z:-5.93,    
+        x: 1.56,
+        y:5.0,
+        z:0.01,    
         scrollTrigger:{
             trigger:' .display-section',
             start: "top bottom",
@@ -62,9 +62,9 @@ export const  scrollAnimation =(position, target, onUpdate) => {
         onUpdate
     })
     .to(target,{  
-        x: 1.52,
-        y:0.77,
-        z:-1.08,    
+        x: 0.55,
+        y:0.32,
+        z:0.0,    
         scrollTrigger:{
             trigger:' .display-section',
             start: "top bottom",
