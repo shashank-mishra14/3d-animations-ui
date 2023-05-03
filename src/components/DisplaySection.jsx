@@ -8,6 +8,7 @@ function DisplaySection() {
             behavior: "smooth",
             left: 0,
         });
+    };
     return ( 
         <div className="display-section wrapper">
             <h2 className="title">New</h2>
