@@ -24,7 +24,31 @@ import { scrollAnimation } from "../lib/scroll-animaton";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function WebgiViewer() {
+const WebgiViewer = forwardRef((props, ref) => {
+
+    const [postion, setPostion] = useState(null);
+
+    const [viewerRef, setViewerRef] = useState(null);
+    const [targetRef, setTargetRef] = useState(null);
+    const [cameraRef, setCameraRef] = useState(null);
+    const [positionRef, setPostionRef] = useState(null);
+
+    useImperativeHandle(ref, () => ({
+        triggerPreview() {
+            gsap.to(positionRef, {
+                x: 13.4,
+                y: -2.01,
+                z:2.29,
+                duration: 2,
+                onUpdate: () =>{
+                    viewerRef.setDirty();
+                    cameraRef.postionTargetUpdated(true);   
+                }
+            })
+            gsap.to(targetRef, {x:0.11,y:0.0,z:0.0,duration:2});
+        },
+    }));
+
 
     const memoizedScrollAnimation = useCallback(
         (position, targer, onUpdate)=>{
@@ -94,6 +118,6 @@ function WebgiViewer() {
     <canvas id="webgi-canvas" ref={canvasRef}/>
     </div>
     );
-}
+}); 
 
 export default WebgiViewer;
