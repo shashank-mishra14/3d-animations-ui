@@ -3,6 +3,7 @@ import Jumbotron from "./components/Jumbotron";
 import SoundSection from "./components/SoundSection";
 import DisplaySection from "./components/DisplaySection";
 import WebgiViewer from "./components/WebgiViewer";
+import { useRef } from "react";
 function App() {
 
     const webgiViewerRef = useRef();

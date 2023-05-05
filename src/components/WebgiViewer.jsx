@@ -58,13 +58,20 @@ const WebgiViewer = forwardRef((props, ref) => {
         },[] 
     )
     
+
+
     const setupViewer= useCallback(async() =>  {
 
         // Initialize the viewer
         const viewer = new ViewerApp({
             canvas: canvasRef.current,
         })
-    
+        
+        setViewerRef(viewer);
+        setCameraRef(viewer.scene.activeCamera);
+        setPostionRef(viewer.scene.activeCamera.position);
+        setTargetRef(viewer.scene.activeCamera.target);
+        
         // Add some plugins
         const manager = await viewer.addPlugin(AssetManagerPlugin)
 
