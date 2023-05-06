@@ -62,7 +62,7 @@ export const  scrollAnimation =(position, target, onUpdate) => {
         onUpdate
     })
     .to(target,{  
-        x: 0.55,
+        x:-0.55,
         y:0.32,
         z:0.0,    
         scrollTrigger:{
