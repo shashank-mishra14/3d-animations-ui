@@ -80,6 +80,7 @@ const WebgiViewer = forwardRef((props, ref) => {
         
         setViewerRef(viewer);
         const isMobileOrTablet =mobileAndTabletCheck();
+        setIsMobile(isMobileOrTablet);
         setCameraRef(camera);
         setPostionRef(position);
         setTargetRef(target);
