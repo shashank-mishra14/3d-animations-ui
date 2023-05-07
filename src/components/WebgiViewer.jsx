@@ -34,6 +34,7 @@ const WebgiViewer = forwardRef((props, ref) => {
     const [positionRef, setPostionRef] = useState(null);
     const canvasContainerRef = useRef(null);
     const [previewMode, setPreviewMode] = useState(false);
+    const [isMobile, setIsMobile] = useState(null); 
 
 
     useImperativeHandle(ref, () => ({
@@ -78,9 +79,10 @@ const WebgiViewer = forwardRef((props, ref) => {
         })
         
         setViewerRef(viewer);
-        setCameraRef(viewer.scene.activeCamera);
-        setPostionRef(viewer.scene.activeCamera.position);
-        setTargetRef(viewer.scene.activeCamera.target);
+        const isMobileOrTablet =mobileAndTabletCheck();
+        setCameraRef(camera);
+        setPostionRef(position);
+        setTargetRef(target);
         
         // Add some plugins
         const manager = await viewer.addPlugin(AssetManagerPlugin)
