@@ -62,9 +62,9 @@ const WebgiViewer = forwardRef((props, ref) => {
 
 
     const memoizedScrollAnimation = useCallback(
-        (position, targer, onUpdate)=>{
+        (position, targer,isMobile, onUpdate)=>{
             if(position && targer && onUpdate){
-                scrollAnimation(position, targer, onUpdate);  
+                scrollAnimation(position, targer, isMobile, onUpdate);  
             }
         },[] 
     )
@@ -109,6 +109,12 @@ const WebgiViewer = forwardRef((props, ref) => {
         viewer.getPlugin(TonemapPlugin).config.clipBackground = true;
         viewer.scene.activeCamera.setCameraOptions({ controlsEnabled : false });
 
+        if(isMobileOrTablet){
+            position.set(-16.7,1.17,11.7);
+            target.set(0,1.37,0);
+            props.contentRef.current.className = "mobile-or-tablet";
+
+        }
         window.scrollTo(0,0);
 
         let needsupdate = true;
@@ -125,7 +131,7 @@ const WebgiViewer = forwardRef((props, ref) => {
             }
         });
     
-        memoizedScrollAnimation(postion, target, onUpdate);
+        memoizedScrollAnimation(postion, target, isMobileOrTablet,onUpdate);
     },[]);
 
     useEffect(()=>{
